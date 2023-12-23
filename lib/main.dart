@@ -2,62 +2,45 @@ import 'package:flutter/material.dart';
 
 /// Flutter code sample for [AppBar].
 
-void main() => runApp(const AppBarApp());
+void main() => runApp(const MyFirstApp());
 
-class AppBarApp extends StatelessWidget {
-  const AppBarApp({super.key});
+class MyFirstApp extends StatelessWidget {
+  const MyFirstApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AppBarExample(),
+      home: _MyFirstApp(),
     );
   }
 }
 
-class AppBarExample extends StatelessWidget {
-  const AppBarExample({super.key});
+class _MyFirstApp extends StatelessWidget {
+  const _MyFirstApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AppBar Demo'),
-        actions: <Widget>[
+        leading: const IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: 'Navigation menu',
+          onPressed: null,
+        ),
+        actions: [
           IconButton(
-            icon: const Icon(Icons.add_alert),
+            icon: const Icon(Icons.person),
             tooltip: 'Show Snackbar',
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('This is a snackbar')));
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.navigate_next),
-            tooltip: 'Go to the next page',
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  return Scaffold(
-                    appBar: AppBar(
-                      title: const Text('Next page'),
-                    ),
-                    body: const Center(
-                      child: Text(
-                        'This is the next page',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ),
-                  );
-                },
-              ));
-            },
-          ),
         ],
       ),
       body: const Center(
         child: Text(
-          'This is the home page',
+          'This is the home page ddd',
           style: TextStyle(fontSize: 24),
         ),
       ),
